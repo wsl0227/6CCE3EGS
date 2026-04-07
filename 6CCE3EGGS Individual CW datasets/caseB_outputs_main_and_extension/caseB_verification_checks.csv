@@ -1,0 +1,31 @@
+method,metric,value,criterion
+simple_rule_simulation,unit_conversion_max_abs_error,0.0,<= 1e-12
+simple_rule_simulation,soc_dynamics_max_abs_error,1.4210854715202004e-14,<= 1e-6
+simple_rule_simulation,soc_min_kwh,0.0,>= 0 and <= 2000.000000
+simple_rule_simulation,soc_max_kwh,2000.0,>= 0 and <= 2000.000000
+simple_rule_simulation,charge_max_kw,1000.0,<= 1000.000000
+simple_rule_simulation,discharge_max_kw,999.9999999999999,<= 1000.000000
+simple_rule_simulation,trade_energy_min_kwh,0.0,>= 0
+simple_rule_simulation,profit_reconstruction_abs_error_gbp,0.0,<= 1e-6
+simple_rule_simulation,simultaneous_charge_discharge_max_kw,0.0,<= 1e-6
+simple_rule_simulation,terminal_soc_gap_kwh,0.0,<= 1e-6
+optimal_profit_only,unit_conversion_max_abs_error,0.0,<= 1e-12
+optimal_profit_only,soc_dynamics_max_abs_error,1.1368683772161603e-13,<= 1e-6
+optimal_profit_only,soc_min_kwh,0.0,>= 0 and <= 2000.000000
+optimal_profit_only,soc_max_kwh,2000.0,>= 0 and <= 2000.000000
+optimal_profit_only,charge_max_kw,1000.0,<= 1000.000000
+optimal_profit_only,discharge_max_kw,1000.0,<= 1000.000000
+optimal_profit_only,trade_energy_min_kwh,0.0,>= 0
+optimal_profit_only,profit_reconstruction_abs_error_gbp,1.8189894035458565e-12,<= 1e-6
+optimal_profit_only,simultaneous_charge_discharge_max_kw,0.0,<= 1e-6
+optimal_profit_only,terminal_soc_gap_kwh,0.0,<= 1e-6
+optimal_carbon_aware,unit_conversion_max_abs_error,0.0,<= 1e-12
+optimal_carbon_aware,soc_dynamics_max_abs_error,1.1368683772161603e-13,<= 1e-6
+optimal_carbon_aware,soc_min_kwh,0.0,>= 0 and <= 2000.000000
+optimal_carbon_aware,soc_max_kwh,2000.0,>= 0 and <= 2000.000000
+optimal_carbon_aware,charge_max_kw,1000.0,<= 1000.000000
+optimal_carbon_aware,discharge_max_kw,1000.0,<= 1000.000000
+optimal_carbon_aware,trade_energy_min_kwh,0.0,>= 0
+optimal_carbon_aware,profit_reconstruction_abs_error_gbp,0.0,<= 1e-6
+optimal_carbon_aware,simultaneous_charge_discharge_max_kw,0.0,<= 1e-6
+optimal_carbon_aware,terminal_soc_gap_kwh,0.0,<= 1e-6

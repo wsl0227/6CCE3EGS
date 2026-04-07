@@ -1,0 +1,126 @@
+{
+  "input_file": "caseB_grid_battery_market_hourly.csv",
+  "battery_parameters": {
+    "energy_capacity_kwh": 2000.0,
+    "max_charge_power_kw": 1000.0,
+    "max_discharge_power_kw": 1000.0,
+    "eta_ch": 0.938,
+    "eta_dis": 0.938,
+    "initial_soc_kwh": 1000.0,
+    "dt_hours": 1.0
+  },
+  "mainline_methods": [
+    "simple_rule_simulation",
+    "optimal_profit_only"
+  ],
+  "extension_method": "optimal_carbon_aware",
+  "carbon_extension": {
+    "extension_name": "Carbon-aware dispatch",
+    "method": "same LP structure written as minimum net electricity cost plus a carbon penalty",
+    "carbon_price_gbp_per_kg": 0.05,
+    "net_carbon_definition": "charge emissions minus discharge displacement"
+  },
+  "unit_check_example": {
+    "first_price_gbp_per_mwh": 13.65,
+    "first_price_gbp_per_kwh": 0.01365,
+    "explanation": "GBP/MWh divided by 1000 equals GBP/kWh"
+  },
+  "summary_metrics": [
+    {
+      "method": "simple_rule_simulation",
+      "total_profit_gbp": 3666.8013433688693,
+      "gross_revenue_gbp": 6873.115159999999,
+      "gross_purchase_cost_gbp": 3206.31381663113,
+      "charged_energy_kwh": 127931.7697228145,
+      "discharged_energy_kwh": 112560.0,
+      "total_throughput_kwh": 240491.7697228145,
+      "final_soc_kwh": 1000.0,
+      "soc_min_kwh": 0.0,
+      "soc_max_kwh": 2000.0,
+      "equivalent_full_cycles": 56.28,
+      "terminal_soc_gap_kwh": 0.0,
+      "net_carbon_kg": -468.4002950959478,
+      "objective_value_gbp_equiv": 3666.8013433688693
+    },
+    {
+      "method": "optimal_profit_only",
+      "total_profit_gbp": 16172.247684308502,
+      "gross_revenue_gbp": 25878.75046712,
+      "gross_purchase_cost_gbp": 9706.502782811498,
+      "charged_energy_kwh": 331671.30991403025,
+      "discharged_energy_kwh": 291819.012,
+      "total_throughput_kwh": 623490.3219140302,
+      "final_soc_kwh": 1000.0,
+      "soc_min_kwh": 0.0,
+      "soc_max_kwh": 2000.0,
+      "equivalent_full_cycles": 145.909506,
+      "terminal_soc_gap_kwh": 0.0,
+      "net_carbon_kg": -7377.933411245654,
+      "objective_value_gbp_equiv": 16172.247684308502
+    },
+    {
+      "method": "optimal_carbon_aware",
+      "total_profit_gbp": 16035.796417263959,
+      "gross_revenue_gbp": 24201.793841079998,
+      "gross_purchase_cost_gbp": 8165.997423816039,
+      "charged_energy_kwh": 291975.0228449589,
+      "discharged_energy_kwh": 256892.472,
+      "total_throughput_kwh": 548867.4948449589,
+      "final_soc_kwh": 1000.0,
+      "soc_min_kwh": 0.0,
+      "soc_max_kwh": 2000.0,
+      "equivalent_full_cycles": 128.446236,
+      "terminal_soc_gap_kwh": 0.0,
+      "net_carbon_kg": -13363.658834150212,
+      "objective_value_gbp_equiv": 16703.979358971468
+    }
+  ],
+  "verification_metrics": {
+    "simple_rule_simulation": {
+      "unit_conversion_max_abs_error": 0.0,
+      "soc_dynamics_max_abs_error": 1.4210854715202004e-14,
+      "soc_min_kwh": 0.0,
+      "soc_max_kwh": 2000.0,
+      "charge_max_kw": 1000.0,
+      "discharge_max_kw": 999.9999999999999,
+      "trade_energy_min_kwh": 0.0,
+      "profit_reconstruction_abs_error_gbp": 0.0,
+      "simultaneous_charge_discharge_max_kw": 0.0,
+      "terminal_soc_gap_kwh": 0.0
+    },
+    "optimal_profit_only": {
+      "unit_conversion_max_abs_error": 0.0,
+      "soc_dynamics_max_abs_error": 1.1368683772161603e-13,
+      "soc_min_kwh": 0.0,
+      "soc_max_kwh": 2000.0,
+      "charge_max_kw": 1000.0,
+      "discharge_max_kw": 1000.0,
+      "trade_energy_min_kwh": 0.0,
+      "profit_reconstruction_abs_error_gbp": 1.8189894035458565e-12,
+      "simultaneous_charge_discharge_max_kw": 0.0,
+      "terminal_soc_gap_kwh": 0.0
+    },
+    "optimal_carbon_aware": {
+      "unit_conversion_max_abs_error": 0.0,
+      "soc_dynamics_max_abs_error": 1.1368683772161603e-13,
+      "soc_min_kwh": 0.0,
+      "soc_max_kwh": 2000.0,
+      "charge_max_kw": 1000.0,
+      "discharge_max_kw": 1000.0,
+      "trade_energy_min_kwh": 0.0,
+      "profit_reconstruction_abs_error_gbp": 0.0,
+      "simultaneous_charge_discharge_max_kw": 0.0,
+      "terminal_soc_gap_kwh": 0.0
+    }
+  },
+  "notes": {
+    "base_case_scope": "included",
+    "extension_scope": "included",
+    "ancillary_column_use": "not used in the model",
+    "imbalance_column_use": "not used in the model",
+    "carbon_column_use": "used only in the extension objective",
+    "simple_rule_method": "fixed daily charging and discharging windows without look-ahead optimisation",
+    "optimal_solver_family": "CVXPY linear programming with teacher-style minimum-net-cost objective",
+    "execution_note": "Local cvxpy installation is required."
+  }
+}
