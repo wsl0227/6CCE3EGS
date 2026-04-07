@@ -12,9 +12,6 @@ The project models a **2 MWh battery** with **1 MW charging and discharging limi
 - `caseB_grid_battery_market_hourly.csv`  
   Input dataset
 
-- `k22036880 6CCE3EGS Individual Coursework Report.pdf`  
-  Final report
-
 - `caseB_summary_metrics.csv`  
   Summary results for all methods
 
